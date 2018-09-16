@@ -1,0 +1,82 @@
+* {
+  box-sizing: border-box; }
+
+.Home .hero {
+  display: flex;
+  width: 100%;
+  height: 800px;
+  margin-top: 70px;
+  background: url("../../img/home/hero.jpg") no-repeat;
+  background-size: cover;
+  opacity: 0.8; }
+  .Home .hero .divOutline {
+    display: flex;
+    width: 750px;
+    height: 380px;
+    margin: auto;
+    border: 2px solid #fff; }
+    .Home .hero .divOutline .divBG {
+      width: 710px;
+      height: 340px;
+      margin: auto;
+      background-color: rgba(255, 255, 255, 0.8); }
+      .Home .hero .divOutline .divBG h2 {
+        margin-top: 20px;
+        font-size: 45px;
+        text-align: center;
+        color: #000; }
+      .Home .hero .divOutline .divBG p {
+        width: 80%;
+        margin: auto;
+        margin-top: 30px;
+        font-size: 25px;
+        text-align: center;
+        color: #000; }
+
+.Home .Slider {
+  display: flex;
+  position: relative;
+  width: 60%;
+  height: 620px;
+  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  border: 5px solid #000;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8); }
+  .Home .Slider .arrowContainer {
+    z-index: 10;
+    position: absolute;
+    display: flex;
+    align-self: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100px; }
+    .Home .Slider .arrowContainer .leftArrow {
+      z-index: 11;
+      display: flex;
+      justify-content: flex-start;
+      width: 50px;
+      height: 100px;
+      margin-left: 15px; }
+      .Home .Slider .arrowContainer .leftArrow img {
+        width: 45%;
+        height: 40%;
+        align-self: center; }
+    .Home .Slider .arrowContainer .rightArrow {
+      display: flex;
+      justify-content: flex-end;
+      width: 50px;
+      height: 100px;
+      margin-right: 15px; }
+      .Home .Slider .arrowContainer .rightArrow img {
+        width: 45%;
+        height: 40%;
+        align-self: center; }
+  .Home .Slider .slides {
+    position: relative;
+    width: 100%;
+    height: 100%; }
+    .Home .Slider .slides .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%; }

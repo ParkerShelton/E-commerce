@@ -1,0 +1,91 @@
+.Products .hero {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 800px;
+  margin-top: 70px;
+  background: url("../../img/products/productsHero.jpg") no-repeat;
+  background-size: cover; }
+  .Products .hero div {
+    display: flex;
+    width: 550px;
+    height: 240px;
+    margin: auto;
+    border: 2px solid #fff; }
+    .Products .hero div h2 {
+      margin: auto;
+      color: #fff;
+      font-size: 80px; }
+  .Products .hero p {
+    width: 500px;
+    font-size: 40px;
+    margin-top: -100px;
+    margin-bottom: auto;
+    align-self: center;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 0 5px #000;
+    text-shadow: 0 0 10px #000;
+    text-shadow: 0 0 15px #000; }
+
+.Products .filter {
+  display: inline-block;
+  margin-top: 60px;
+  margin-left: 150px; }
+  .Products .filter p {
+    font-size: 16px;
+    padding-bottom: 5px; }
+
+.Products .dividerLine {
+  width: 85%;
+  height: 2px;
+  margin: auto;
+  margin-top: 30px;
+  background-color: #000; }
+
+.Products .productContainer {
+  width: 80%;
+  height: 100%;
+  margin: auto;
+  margin-top: 40px;
+  margin-bottom: 150px; }
+  .Products .productContainer ul {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%; }
+    .Products .productContainer ul .Product {
+      display: inline-flex;
+      flex-basis: 30%;
+      margin-bottom: 30px;
+      border: 2px solid #000; }
+      .Products .productContainer ul .Product .productContain {
+        width: 350px;
+        height: 450px; }
+        .Products .productContainer ul .Product .productContain img {
+          width: 100%;
+          height: 100%; }
+  .Products .productContainer .Module {
+    display: flex;
+    position: absolute; }
+    .Products .productContainer .Module .infoContainer {
+      display: flex;
+      width: 700px;
+      height: 550px; }
+      .Products .productContainer .Module .infoContainer .leftColumn {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 50%;
+        height: 100%;
+        background-color: yellow; }
+        .Products .productContainer .Module .infoContainer .leftColumn img {
+          width: 230px;
+          height: 230px;
+          align-self: center;
+          background-color: #000; }
+      .Products .productContainer .Module .infoContainer .rightColumn {
+        width: 50%;
+        height: 100%;
+        background-color: blue; }
