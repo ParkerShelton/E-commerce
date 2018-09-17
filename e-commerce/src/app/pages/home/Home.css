@@ -1,82 +1,141 @@
+@import url("https://fonts.googleapis.com/css?family=Kaushan+Script|Patua+One");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
 * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
   box-sizing: border-box; }
+  * a {
+    color: inherit; }
 
-.Home .hero {
-  display: flex;
-  width: 100%;
-  height: 800px;
-  margin-top: 70px;
-  background: url("../../img/home/hero.jpg") no-repeat;
-  background-size: cover;
-  opacity: 0.8; }
-  .Home .hero .divOutline {
+.Home {
+  font-family: "Patua One"; }
+  .Home .hero {
     display: flex;
-    width: 750px;
-    height: 380px;
-    margin: auto;
-    border: 2px solid #fff; }
-    .Home .hero .divOutline .divBG {
-      width: 710px;
-      height: 340px;
+    width: 100%;
+    height: 800px;
+    margin-top: 70px;
+    background: url("../../img/home/hero.jpg") no-repeat;
+    background-size: cover;
+    opacity: 0.8; }
+    .Home .hero .divOutline {
+      display: flex;
+      width: 750px;
+      height: 380px;
       margin: auto;
-      background-color: rgba(255, 255, 255, 0.8); }
-      .Home .hero .divOutline .divBG h2 {
-        margin-top: 20px;
-        font-size: 45px;
-        text-align: center;
-        color: #000; }
-      .Home .hero .divOutline .divBG p {
-        width: 80%;
+      border: 2px solid #fff; }
+      .Home .hero .divOutline .divBG {
+        width: 710px;
+        height: 340px;
         margin: auto;
-        margin-top: 30px;
-        font-size: 25px;
-        text-align: center;
-        color: #000; }
-
-.Home .Slider {
-  display: flex;
-  position: relative;
-  width: 60%;
-  height: 620px;
-  margin: auto;
-  margin-top: 100px;
-  margin-bottom: 100px;
-  border: 5px solid #000;
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8); }
-  .Home .Slider .arrowContainer {
-    z-index: 10;
-    position: absolute;
+        background-color: rgba(255, 255, 255, 0.8); }
+        .Home .hero .divOutline .divBG h2 {
+          margin-top: 20px;
+          font-size: 45px;
+          text-align: center;
+          color: #000; }
+        .Home .hero .divOutline .divBG p {
+          width: 80%;
+          margin: auto;
+          margin-top: 30px;
+          font-size: 25px;
+          text-align: center;
+          color: #000; }
+  .Home .Slider {
     display: flex;
-    align-self: center;
-    justify-content: space-between;
-    width: 100%;
-    height: 100px; }
-    .Home .Slider .arrowContainer .leftArrow {
-      z-index: 11;
-      display: flex;
-      justify-content: flex-start;
-      width: 50px;
-      height: 100px;
-      margin-left: 15px; }
-      .Home .Slider .arrowContainer .leftArrow img {
-        width: 45%;
-        height: 40%;
-        align-self: center; }
-    .Home .Slider .arrowContainer .rightArrow {
-      display: flex;
-      justify-content: flex-end;
-      width: 50px;
-      height: 100px;
-      margin-right: 15px; }
-      .Home .Slider .arrowContainer .rightArrow img {
-        width: 45%;
-        height: 40%;
-        align-self: center; }
-  .Home .Slider .slides {
     position: relative;
-    width: 100%;
-    height: 100%; }
-    .Home .Slider .slides .slide {
+    width: 60%;
+    height: 620px;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    border: 5px solid #000;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8); }
+    .Home .Slider .arrowContainer {
+      z-index: 10;
       position: absolute;
+      display: flex;
+      align-self: center;
+      justify-content: space-between;
+      width: 100%;
+      height: 100px; }
+      .Home .Slider .arrowContainer .leftArrow {
+        z-index: 11;
+        display: flex;
+        justify-content: flex-start;
+        width: 50px;
+        height: 100px;
+        margin-left: 15px; }
+        .Home .Slider .arrowContainer .leftArrow img {
+          width: 45%;
+          height: 40%;
+          align-self: center; }
+      .Home .Slider .arrowContainer .rightArrow {
+        display: flex;
+        justify-content: flex-end;
+        width: 50px;
+        height: 100px;
+        margin-right: 15px; }
+        .Home .Slider .arrowContainer .rightArrow img {
+          width: 45%;
+          height: 40%;
+          align-self: center; }
+    .Home .Slider .slides {
+      position: relative;
       width: 100%;
       height: 100%; }
+      .Home .Slider .slides .slide {
+        position: absolute;
+        width: 100%;
+        height: 100%; }
+
+@media only screen and (max-width: 800px) {
+  .Home .hero .divOutline {
+    width: 700px; }
+    .Home .hero .divOutline .divBG {
+      width: 660px; }
+  .Home .Slider {
+    width: 85%; } }

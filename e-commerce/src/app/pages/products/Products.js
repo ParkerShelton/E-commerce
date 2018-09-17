@@ -99,7 +99,7 @@ class Products extends Component {
             <option value="blackwork">Blackwork</option>
           </select>
 
-          <label htmlFor="price">Max Price</label>
+          <label htmlFor="price">Max Price:</label>
           <input value={this.state.maxPrice} onChange={(e) => this.handleCategory(e)} name="price" className="price" />
         </form>        
 

@@ -1,14 +1,5 @@
-* {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  text-decoration: none;
-  box-sizing: border-box;
-  
-  a {
-    color: inherit;
-  }
-}
+@import '../../Global.scss';
+
 
 .Header {
   position: fixed;
@@ -19,17 +10,19 @@
   top: 0;
   background-color: #fff;
   border-bottom: 2px solid #888;
+  font-family: $Patua;
 
   .container {
     display: flex;
     justify-content: space-between;
-    width: 75%;
+    width: 80%;
     margin: auto;
 
     .title {
       width: 300px;
       font-size: 30px;
       align-self: center;
+      font-family: $Kaushan;
     }
 
     .links {
@@ -46,23 +39,7 @@
 }
 
 
-@media (max-width: 900px) {
-  
-  .Header {
-
-    .container {
-      width: 90%;
-      background-color: blue;
-
-      .links {
-        width: 50%;
-        background-color: yellow;
-      }
-    }
-  }  
-}
-
-@media (max-width: 768px) {
+@media only screen and (max-width: 800px) {
   
   .Header {
 

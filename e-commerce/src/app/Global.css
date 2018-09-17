@@ -50,39 +50,3 @@ table {
   box-sizing: border-box; }
   * a {
     color: inherit; }
-
-.Header {
-  position: fixed;
-  z-index: 100;
-  display: flex;
-  width: 100%;
-  height: 70px;
-  top: 0;
-  background-color: #fff;
-  border-bottom: 2px solid #888;
-  font-family: "Patua One"; }
-  .Header .container {
-    display: flex;
-    justify-content: space-between;
-    width: 80%;
-    margin: auto; }
-    .Header .container .title {
-      width: 300px;
-      font-size: 30px;
-      align-self: center;
-      font-family: "Kaushan Script"; }
-    .Header .container .links {
-      width: 40%;
-      display: flex;
-      justify-content: space-between;
-      align-self: center; }
-      .Header .container .links .link {
-        font-size: 20px; }
-
-@media only screen and (max-width: 800px) {
-  .Header .container {
-    width: 90%;
-    background-color: blue; }
-    .Header .container .links {
-      width: 45%;
-      background-color: yellow; } }

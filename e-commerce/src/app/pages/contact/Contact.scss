@@ -1,9 +1,11 @@
+@import '../../Global.scss';
+
 //###############################################
 //                  CONTACT
 //###############################################
 
 .Contact {
-
+  font-family: $Patua;
 
   .hero {
     display: flex;
@@ -104,9 +106,11 @@
     // background-color: yellow;
 
     h2 {
-      font-size: 45px;
+      font-size: 50px;
+      font-weight: bold;
       text-align: center;
       height: 80px;
+      font-family: $Kaushan;
       // background-color: lightcoral;
     }
 
@@ -179,7 +183,6 @@
             border-radius: 5px;
           }
 
-
         }
       }
 
@@ -201,13 +204,12 @@
         .newsletter {
           display: flex;
           justify-content: flex-start;
-          width: 100%;
+          width: 60%;
           height: 30px;
-          margin-top: 30px;
+          margin: auto;
           
           input {
             align-self: center;
-            margin-left: 150px;
             margin-right: 10px;
           }
 
@@ -218,7 +220,7 @@
 
         .captcha {
           margin: auto;
-          margin-top: 30px;
+          margin-top: 20px;
         }
 
         button {
