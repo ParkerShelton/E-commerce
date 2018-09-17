@@ -33,7 +33,7 @@
     }
 
     .links {
-      width: 30%;
+      width: 40%;
       display: flex;
       justify-content: space-between;
       align-self: center;
@@ -43,4 +43,37 @@
       }
     }
   }
+}
+
+
+@media (max-width: 900px) {
+  
+  .Header {
+
+    .container {
+      width: 90%;
+      background-color: blue;
+
+      .links {
+        width: 50%;
+        background-color: yellow;
+      }
+    }
+  }  
+}
+
+@media (max-width: 768px) {
+  
+  .Header {
+
+    .container {
+      width: 90%;
+      background-color: blue;
+
+      .links {
+        width: 45%;
+        background-color: yellow;
+      }
+    }
+  }  
 }

@@ -2,7 +2,7 @@
   "products": [
     {
       "id": 0,
-      "price": 12.90,
+      "price": 30.90,
       "category": "traditional",
       "img": "./productImg/seaCompass.jpg",
       "name": "One",
@@ -18,7 +18,7 @@
     },
     {
       "id": 2,
-      "price": 12.90,
+      "price": 22.90,
       "category": "tribal",
       "img": "./productImg/seaCompass.jpg",
       "name": "Three",
@@ -26,7 +26,7 @@
     },
     {
       "id": 3,
-      "price": 12.90,
+      "price": 52.90,
       "category": "watercolor",
       "img": "./productImg/seaCompass.jpg",
       "name": "Four",
@@ -42,12 +42,36 @@
     },
     {
       "id": 5,
-      "price": 12.90,
+      "price": 2.90,
       "category": "traditional",
       "img": "./productImg/seaCompass.jpg",
       "name": "Six",
       "description": "description"
-    }            
+    },
+    {
+      "id": 6,
+      "price": 2.90,
+      "category": "watercolor",
+      "img": "./productImg/seaCompass.jpg",
+      "name": "Seven",
+      "description": "description"
+    },
+    {
+      "id": 7,
+      "price": 2.90,
+      "category": "blackwork",
+      "img": "./productImg/seaCompass.jpg",
+      "name": "Eight",
+      "description": "description"
+    },
+    {
+      "id": 8,
+      "price": 2.90,
+      "category": "tribal",
+      "img": "./productImg/seaCompass.jpg",
+      "name": "Nine",
+      "description": "description"
+    }               
   ]
 }
 

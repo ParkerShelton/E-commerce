@@ -26,9 +26,25 @@
       font-size: 30px;
       align-self: center; }
     .Header .container .links {
-      width: 30%;
+      width: 40%;
       display: flex;
       justify-content: space-between;
       align-self: center; }
       .Header .container .links .link {
         font-size: 20px; }
+
+@media (max-width: 900px) {
+  .Header .container {
+    width: 90%;
+    background-color: blue; }
+    .Header .container .links {
+      width: 50%;
+      background-color: yellow; } }
+
+@media (max-width: 768px) {
+  .Header .container {
+    width: 90%;
+    background-color: blue; }
+    .Header .container .links {
+      width: 45%;
+      background-color: yellow; } }
