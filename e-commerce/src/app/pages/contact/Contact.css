@@ -182,7 +182,8 @@ table {
           width: 60%;
           height: 100px;
           align-self: center;
-          margin-top: 20px; }
+          margin-top: 20px;
+          resize: none; }
         .Contact .Form form .bottomRow .newsletter {
           display: flex;
           justify-content: flex-start;

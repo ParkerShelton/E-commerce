@@ -1,0 +1,14 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "E-commerce api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Parker Shelton",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.16.3"
+  }
+}

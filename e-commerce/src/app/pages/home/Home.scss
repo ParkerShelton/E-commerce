@@ -4,7 +4,7 @@
 .Home {
   font-family: $Patua;
 //###############################################
-//                  HERO
+//                    HERO
 //###############################################
 
   .hero {
@@ -16,7 +16,6 @@
     background-size: cover;
     opacity: 0.8;
     
-
     .divOutline {
       display: flex;
       width: 750px;
@@ -31,17 +30,18 @@
         background-color: rgba(255, 255, 255, 0.8);
 
         h2 {
-          margin-top: 20px;
-          font-size: 45px;
+          margin-top: 40px;
+          font-size: 55px;
           text-align: center;
           color: #000;
+          font-family: $Kaushan;
         }
 
         p {
           width: 80%;
           margin: auto;
-          margin-top: 30px;
-          font-size: 25px;
+          margin-top: 50px;
+          font-size: 35px;
           text-align: center;
           color: #000;
         }

@@ -73,15 +73,16 @@ table {
         margin: auto;
         background-color: rgba(255, 255, 255, 0.8); }
         .Home .hero .divOutline .divBG h2 {
-          margin-top: 20px;
-          font-size: 45px;
+          margin-top: 40px;
+          font-size: 55px;
           text-align: center;
-          color: #000; }
+          color: #000;
+          font-family: "Kaushan Script"; }
         .Home .hero .divOutline .divBG p {
           width: 80%;
           margin: auto;
-          margin-top: 30px;
-          font-size: 25px;
+          margin-top: 50px;
+          font-size: 35px;
           text-align: center;
           color: #000; }
   .Home .Slider {

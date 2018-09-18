@@ -41,8 +41,6 @@ class Slider extends Component {
 
   }
 
-
-
   render() {
     return (
       <div className="Slider">

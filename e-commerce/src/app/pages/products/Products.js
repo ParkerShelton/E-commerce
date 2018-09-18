@@ -79,7 +79,7 @@ class Products extends Component {
 
     return (
       <div className="Products">
-
+        {console.log(this.state.products)}
         <div className="hero">
           <div>
             <h2>PRODUCTS</h2>
