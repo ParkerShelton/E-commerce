@@ -46,20 +46,26 @@ class Products extends Component {
   renderProducts = () => {
     let selectedCategory = this.state.selectedCategory;
 
-    
+    if(this.props.products !== null) {
+      if(selectedCategory === "all") {
+        let productList = this.props.products.filter(product => product.price <= this.state.maxPrice).map((product) => {      
+          return <Product key={product._id} img={product.img} product={product} selectProduct={this.selectProduct} />
 
-    if(selectedCategory === "all") {
-      let productList = this.props.products.filter(product => product.price <= this.state.maxPrice).map((product) => {      
-        return <Product key={product.id} product={product} selectProduct={this.selectProduct} />
-      });        
-      return productList;
+        });        
+        return productList;
+
+      } else {
+        let filteredList = this.props.products.filter(product => product.price <= this.state.maxPrice).filter(product => product.category === this.state.selectedCategory).map((product) => {
+          return <Product key={product.id} product={product} selectProduct={this.selectProduct} />
+
+        });        
+        return filteredList;      
+      } 
 
     } else {
-      let filteredList = this.props.products.filter(product => product.price <= this.state.maxPrice).filter(product => product.category === this.state.selectedCategory).map((product) => {
-        return <Product key={product.id} product={product} selectProduct={this.selectProduct} />
-      });        
-      return filteredList;      
+      return null;
     }
+
   }
 
 // Renders module when product has been clicked
@@ -108,8 +114,7 @@ class Products extends Component {
           {/* {this.renderModule()} */}
 
           <ul>
-            {/* {this.renderProducts()} */}
-            {/* {this.componentWillReceiveProps()} */}
+            {this.renderProducts()}
             {console.log(this.props.products)}
           </ul>
         </div>

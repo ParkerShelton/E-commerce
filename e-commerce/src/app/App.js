@@ -7,6 +7,7 @@ import Home from './pages/home/Home';
 import Products from './pages/products/Products';
 import Contact from './pages/contact/Contact';
 import Error from './pages/error/Error';
+import Admin from './pages/admin/Admin';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 
@@ -20,7 +21,7 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    const url = "http://localhost:3003/tattoos";
+    const url = "http://localhost:5000/tattoos";
 
     fetch(url)
       .then((res) => res.json())
@@ -48,6 +49,7 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/products" render={() => (<Products products={this.state.products}/>)} />
             <Route exact path="/contact" component={Contact} />
+            <Route exact path="/admin" component={Admin} />
             <Route component={Error} />
           </Switch>
 
