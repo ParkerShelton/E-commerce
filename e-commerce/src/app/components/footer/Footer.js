@@ -14,7 +14,7 @@ class Footer extends Component {
             <li className="link"><NavLink to="/contact">Contact Us</NavLink></li>          
           </ul>      
 
-          <h2>Website Name</h2>
+          <h2>Artink</h2>
         </div>
 
       </div>

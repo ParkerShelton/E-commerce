@@ -1,0 +1,42 @@
+@import '../../Global.scss';
+
+.Error {
+  width: 100%;
+  height: 100%;
+  padding-top: 70px;
+  font-family: $Patua;
+
+  .errorContainer {
+    width: 60%;
+    height: 500px;
+    margin: auto;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    // background-color: yellow;
+
+    h3 {
+      font-size: 45px;
+      width: 100%;
+      text-align: center;
+    }
+
+    h2 {
+      width: 80%;
+      font-size: 80px;
+      font-weight: bold;
+      text-align: center;
+      margin: auto;
+      margin-top: 25px;
+      font-family: $Kaushan;
+    }
+
+    p {
+      width: 70%;
+      font-size: 30px;
+      text-align: center;
+      margin: auto;
+      margin-top: 60px;
+      line-height: 45px;
+    }
+  }
+}

@@ -8,7 +8,7 @@ class Header extends Component {
       <div className="Header">
       
         <div className="container">
-          <h1 className="title">Website Name</h1>
+          <h1 className="title">ArtInk</h1>
 
           <ul className="links">
             <li className="link"><NavLink to="/">Home</NavLink></li>

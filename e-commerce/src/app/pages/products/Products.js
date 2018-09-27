@@ -3,19 +3,16 @@ import React, { Component } from 'react';
 import Product from './Product';
 import Module from './Module';
 
-import { getProducts } from '../../../api/api';
 import './Products.css';
 
 class Products extends Component {
   constructor(props) {
     super(props);
 
-    let data = getProducts();
-
     this.state = {
-      products: data,
       selectedProd: null,
-      selectedCategory: "all"
+      selectedCategory: "all",
+      maxPrice: 100
     }
   }
 
@@ -29,21 +26,36 @@ class Products extends Component {
 
 // Which category selected to filter
   handleCategory = (event) => {
-    this.setState({selectedCategory: event.target.value});
+    if(event.target.className === "category") {
+      this.setState({selectedCategory: event.target.value});
+      
+
+    } else if(event.target.className === "price") {
+      if(isNaN(event.target.value)) {
+        event.target.value = "";
+      }
+      if(event.target.value > 100) {
+        event.target.value = 100;
+      } 
+      this.setState({maxPrice: event.target.value});
+    }
   }
+
 
 // Rendering the products that fit the filter
   renderProducts = () => {
     let selectedCategory = this.state.selectedCategory;
 
+    
+
     if(selectedCategory === "all") {
-      let productList = this.state.products.map((product) => {      
+      let productList = this.props.products.filter(product => product.price <= this.state.maxPrice).map((product) => {      
         return <Product key={product.id} product={product} selectProduct={this.selectProduct} />
       });        
       return productList;
 
     } else {
-      let filteredList = this.state.products.filter(product => product.category === this.state.selectedCategory).map((product) => {
+      let filteredList = this.props.products.filter(product => product.price <= this.state.maxPrice).filter(product => product.category === this.state.selectedCategory).map((product) => {
         return <Product key={product.id} product={product} selectProduct={this.selectProduct} />
       });        
       return filteredList;      
@@ -66,7 +78,7 @@ class Products extends Component {
 
     return (
       <div className="Products">
-
+        
         <div className="hero">
           <div>
             <h2>PRODUCTS</h2>
@@ -77,7 +89,7 @@ class Products extends Component {
         <form className="filter" onSubmit={this.handleSubmit}>
           <p>Category:</p>
 
-          <select value={this.state.selectedCategory} onChange={(e) => this.handleCategory(e)}>
+          <select className="category" value={this.state.selectedCategory} onChange={(e) => this.handleCategory(e)}>
             <option value="all">All</option>
             <option value="traditional">Traditional</option>
             <option value="realistic">Realistic</option>
@@ -85,6 +97,9 @@ class Products extends Component {
             <option value="watercolor">Watercolor</option>
             <option value="blackwork">Blackwork</option>
           </select>
+
+          <label htmlFor="price">Max Price:</label>
+          <input value={this.state.maxPrice} onChange={(e) => this.handleCategory(e)} name="price" className="price" />
         </form>        
 
         <div className="dividerLine"></div>
@@ -93,7 +108,9 @@ class Products extends Component {
           {/* {this.renderModule()} */}
 
           <ul>
-            {this.renderProducts()}
+            {/* {this.renderProducts()} */}
+            {/* {this.componentWillReceiveProps()} */}
+            {console.log(this.props.products)}
           </ul>
         </div>
         

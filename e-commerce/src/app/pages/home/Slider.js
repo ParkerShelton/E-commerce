@@ -41,24 +41,21 @@ class Slider extends Component {
 
   }
 
-
-
   render() {
     return (
       <div className="Slider">
-        {console.log(this.state.currentIndex)}
 
         <div className="arrowContainer">
           <div className="leftArrow" onClick={(e) => this.handleArrows(e)}>
-            <img className="leftArrowImg" src={leftArrow} onClick={(e) => this.handleArrows(e)}/>
+            <img alt="Left Arrow" className="leftArrowImg" src={leftArrow} onClick={(e) => this.handleArrows(e)}/>
           </div>
           <div className="rightArrow" onClick={(e) => this.handleArrows(e)}>
-            <img className="rightArrowImg" src={rightArrow} onClick={(e) => this.handleArrows(e)}/>
+            <img alt="Right Arrow" className="rightArrowImg" src={rightArrow} onClick={(e) => this.handleArrows(e)}/>
           </div>
         </div>
         
         <div className="slides">
-          <img alt="Slide 1" className="slide" src={this.state.slider[this.state.currentIndex]}/>
+          <img alt="Slides" className="slide" src={this.state.slider[this.state.currentIndex]}/>
         </div>
 
       </div>

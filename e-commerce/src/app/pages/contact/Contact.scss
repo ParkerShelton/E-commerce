@@ -1,9 +1,11 @@
+@import '../../Global.scss';
+
 //###############################################
 //                  CONTACT
 //###############################################
 
 .Contact {
-
+  font-family: $Patua;
 
   .hero {
     display: flex;
@@ -43,13 +45,16 @@
     }
   }
 
+//###############################################
+//          FREQUENTLY ASKED QUESTIONS
+//###############################################
 
-  .faqContainer {
+  .FAQ {
     width: 80%;
     height: 500px;
     margin: auto;
     margin-top: 50px;
-    background-color: yellow;
+    // background-color: yellow;
 
     .topRow {
       display: flex;
@@ -83,6 +88,152 @@
         }
       }
     }
+  }
+
+
+//###############################################
+//                  FORM
+//###############################################
+
+  .Form {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 800px;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 200px;
+    // background-color: yellow;
+
+    h2 {
+      font-size: 50px;
+      font-weight: bold;
+      text-align: center;
+      height: 80px;
+      font-family: $Kaushan;
+      // background-color: lightcoral;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      height: 100%;
+      background-color: #aaa;
+      border-radius: 5px;
+
+      .topRow {
+        display: flex;
+        width: 100%;
+        height: 100%;
+
+        .leftColumn {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          width: 50%;
+          height: 100%;
+          padding-top: 15px;
+          // background-color: blue;
+
+          label {
+            font-size: 20px;
+            margin: 5px;
+            margin-top: 40px;
+            align-self: center;
+          }
+          .feedbackType {
+            width: 60%; 
+            height: 25px;
+            align-self: center;
+            
+          }
+          input {
+            width: 60%;
+            height: 25px;
+            // margin-top: 10px;
+            align-self: center;
+            border-radius: 5px;
+          }
+
+        }
+
+        .rightColumn {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          width: 50%;
+          height: 100%;
+          padding-top: 15px;
+          // background-color: green;
+
+          label {
+            font-size: 20px;
+            margin: 5px;
+            margin-top: 40px;
+            align-self: center;
+          }
+
+          input {
+            width: 60%;
+            height: 25px;
+            // margin-top: 10px;
+            align-self: center;
+            border-radius: 5px;
+          }
+
+        }
+      }
+
+      .bottomRow {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 800px;
+        // background-color: red;
+
+        .comments {
+          width: 60%;
+          height: 100px;
+          align-self: center;
+          margin-top: 20px;
+          resize: none;
+        }
+
+        .newsletter {
+          display: flex;
+          justify-content: flex-start;
+          width: 60%;
+          height: 30px;
+          margin: auto;
+          
+          input {
+            align-self: center;
+            margin-right: 10px;
+          }
+
+          p {
+            align-self: center;
+          }
+        }
+
+        .captcha {
+          margin: auto;
+          margin-top: 20px;
+        }
+
+        button {
+          width: 200px;
+          height: 40px;
+          margin: auto;
+          margin-bottom: 20px;
+          border-radius: 5px;
+        }
+
+      }
+    }
+
   }
 
 }

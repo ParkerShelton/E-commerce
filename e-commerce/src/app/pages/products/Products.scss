@@ -1,7 +1,12 @@
+@import '../../Global.scss';
+
 //###############################################
 //                PRODUCTS
 //###############################################
+
 .Products {
+  font-family: $Patua;
+  
   .hero {
     display: flex;
     flex-direction: column;
@@ -54,8 +59,16 @@
       font-size: 16px;
       padding-bottom: 5px;
     }
-  }
 
+    label {
+      margin-left: 20px;
+    }
+    input {
+      margin-left: 10px;
+      width: 30px;
+      font-size: 14px;
+    }
+  }
 
   .dividerLine {
     width: 85%;
@@ -64,7 +77,6 @@
     margin-top: 30px;
     background-color: #000;
   }
-
 
 //###############################################
 //                PRODUCT
@@ -145,4 +157,22 @@
     }
   }
 
+}
+
+@media only screen and (max-width: 1300px) {
+  .Products {
+
+    .productContainer {
+      width: 60%;
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .Products {
+
+    .productContainer {
+      width: 40%;
+    }
+  }
 }
