@@ -13,7 +13,7 @@ app.use(function(req, res, next) {
     next();
 });
 
-
+const port = 5000;
 
 
 
@@ -41,21 +41,10 @@ app.get('/tattoos/:id', (req, res) => {
   }).catch(err => res.status(400).send(err));
 });
 
-//DELETES TATTOO WITH SPECIFIED ID
-app.delete('/tattoos/:id', (req, res) => {
-  const id = req.params.id;
 
-  Tattoo.findByIdAndDelete(id).then(tattoo => {
-    if (tattoo) {
-      return res.send(tattoo);
-    } else {
-      return res.status(404).send('Unable to find id');
-    }
-  }).catch(err => res.status(400).send(err));
-});
 
 //CREATES NEW TATTOO
-app.post('/tattoos', (req, res) => {
+app.post('/admin', (req, res) => {
 
   //you have to make sure the tattoo doesnt exist already, mongoose handles that
   const {_id, price, category, img, name} = req.body;
@@ -71,6 +60,22 @@ app.post('/tattoos', (req, res) => {
       res.send(tattoo);
     }).catch( err => res.status(400).send(err.message));
 })
+
+
+
+//DELETES TATTOO WITH SPECIFIED ID
+app.delete('/tattoos/:id', (req, res) => {
+  const id = req.params.id;
+
+  Tattoo.findByIdAndDelete(id).then(tattoo => {
+    if (tattoo) {
+      return res.send(tattoo);
+    } else {
+      return res.status(404).send('Unable to find id');
+    }
+  }).catch(err => res.status(400).send(err));
+});
+
 
 //UPDATES TATTOO WITH SPECIFIED ID
 app.put('/tattoos/:id', (req, res) => {
@@ -112,9 +117,9 @@ app.put('/tattoos/:id', (req, res) => {
 
 
 
-// set the server to listen on port 3003
-app.listen(3003, () => {
-  console.log("Listening on port 3003");
+// set the server to listen on port variable
+app.listen(port, () => {
+  console.log(`Listening on port ${port}`);
 });
 
 

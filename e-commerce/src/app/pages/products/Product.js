@@ -9,7 +9,8 @@ class Product extends Component {
     return (
       <li className="Product" onClick={() => this.props.selectProduct(this.props.product)}>
         <div className="productContain">
-          <img alt="Product" src={require(`${this.props.product.img}`)} />
+          {console.log(this.props.img)}
+          {/* <img alt="Product" src={require(this.props.img)} /> */}
         </div>
       </li>
     );
