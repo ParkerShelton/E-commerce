@@ -3,17 +3,13 @@ import React, { Component } from 'react';
 import Product from './Product';
 import Module from './Module';
 
-import { getProducts } from '../../../api/api';
 import './Products.css';
 
 class Products extends Component {
   constructor(props) {
     super(props);
 
-    let data = getProducts();
-
     this.state = {
-      products: data,
       selectedProd: null,
       selectedCategory: "all",
       maxPrice: 100
@@ -45,18 +41,21 @@ class Products extends Component {
     }
   }
 
+
 // Rendering the products that fit the filter
   renderProducts = () => {
     let selectedCategory = this.state.selectedCategory;
 
+    
+
     if(selectedCategory === "all") {
-      let productList = this.state.products.filter(product => product.price <= this.state.maxPrice).map((product) => {      
+      let productList = this.props.products.filter(product => product.price <= this.state.maxPrice).map((product) => {      
         return <Product key={product.id} product={product} selectProduct={this.selectProduct} />
       });        
       return productList;
 
     } else {
-      let filteredList = this.state.products.filter(product => product.price <= this.state.maxPrice).filter(product => product.category === this.state.selectedCategory).map((product) => {
+      let filteredList = this.props.products.filter(product => product.price <= this.state.maxPrice).filter(product => product.category === this.state.selectedCategory).map((product) => {
         return <Product key={product.id} product={product} selectProduct={this.selectProduct} />
       });        
       return filteredList;      
@@ -79,7 +78,7 @@ class Products extends Component {
 
     return (
       <div className="Products">
-        {console.log(this.state.products)}
+        
         <div className="hero">
           <div>
             <h2>PRODUCTS</h2>
@@ -107,10 +106,11 @@ class Products extends Component {
 
         <div className="productContainer">
           {/* {this.renderModule()} */}
-          {console.log(this.state.maxPrice)}
-          {console.log(this.state.selectedCategory)}
+
           <ul>
-            {this.renderProducts()}
+            {/* {this.renderProducts()} */}
+            {/* {this.componentWillReceiveProps()} */}
+            {console.log(this.props.products)}
           </ul>
         </div>
         

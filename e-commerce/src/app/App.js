@@ -11,6 +11,31 @@ import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      products: null,
+    }
+  }
+
+  componentDidMount = () => {
+    const url = "http://localhost:3003/tattoos";
+
+    fetch(url)
+      .then((res) => res.json())
+      .then((resJSON) => {
+        this.setState({products: resJSON});
+      });
+  
+  };
+
+
+  ProductPage = (props) => {
+    return (
+      <Products products={this.props.products} />
+    );
+  };
 
 
   render() {
@@ -20,11 +45,13 @@ class App extends Component {
           <Header />
 
           <Switch>
-            <Route path="/" component={Home} exact/>
-            <Route path="/products" component={Products} />
-            <Route path="/contact" component={Contact} />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/products" render={() => (<Products products={this.state.products}/>)} />
+            <Route exact path="/contact" component={Contact} />
             <Route component={Error} />
           </Switch>
+
+          {console.log(this.state.products)}
 
           <Footer />
         </div>
