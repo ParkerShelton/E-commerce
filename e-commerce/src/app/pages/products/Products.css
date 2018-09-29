@@ -59,7 +59,7 @@ table {
     width: 100%;
     height: 800px;
     margin-top: 70px;
-    background: url("../../img/products/productsHero.jpg") no-repeat;
+    background: url("/img/product/productsHero.jpg") no-repeat;
     background-size: cover; }
     .Products .hero div {
       display: flex;

@@ -60,7 +60,7 @@ table {
     width: 100%;
     height: 800px;
     margin-top: 70px;
-    background: url("../../img/contact/hero.jpg") no-repeat;
+    background: url("/img/contact/hero.jpg") no-repeat;
     background-size: cover; }
     .Contact .hero div {
       display: flex;

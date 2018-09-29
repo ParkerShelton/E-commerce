@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import slide1 from './homeImg/slide1.jpg';
-import slide2 from './homeImg/slide2.jpg';
-import slide3 from './homeImg/slide3.jpg';
+// import slide1 from '/img/home/slide1.jpg';
+// import slide2 from '/img/home/slide2.jpg';
+// import slide3 from '/img/home/slide3.jpg';
 
-import leftArrow from './homeImg/leftArrow.png'
-import rightArrow from './homeImg/rightArrow.png'
+// import leftArrow from '/img/home/leftArrow.png';
+// import rightArrow from '/img/home/rightArrow.png';
 import './Home.css';
 
 class Slider extends Component {
@@ -12,7 +12,7 @@ class Slider extends Component {
     super(props);
 
     this.state = {
-      slider: [slide1, slide2, slide3],
+      slider: ['/img/home/slide1.jpg', '/img/home/slide2.jpg', '/img/home/slide3.jpg'],
       currentIndex: 0
     };
   }
@@ -42,6 +42,10 @@ class Slider extends Component {
   }
 
   render() {
+
+    let leftArrow = '/img/home/leftArrow.png';
+    let rightArrow = '/img/home/rightArrow.png';
+
     return (
       <div className="Slider">
 

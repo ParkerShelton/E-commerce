@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import faqIcon from '../../img/contact/faqIcon.png';
 import './Contact.css';
 
 class FAQ extends Component {
@@ -9,7 +8,7 @@ class FAQ extends Component {
       <div className="FAQ">
 
         <div className="topRow">
-          <img alt="FAQ Icon" src={faqIcon}/>
+          <img alt="FAQ Icon" src={'/img/contact/faqIcon.png'}/>
         </div>
 
         <ul className="faq">
