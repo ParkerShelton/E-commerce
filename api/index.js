@@ -9,6 +9,7 @@ app.use(bodyParser.json());
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
@@ -44,7 +45,7 @@ app.get('/tattoos/:id', (req, res) => {
 
 
 //CREATES NEW TATTOO
-app.post('/admin', (req, res) => {
+app.post('/tattoos', (req, res) => {
 
   //you have to make sure the tattoo doesnt exist already, mongoose handles that
   const {id, price, category, name} = req.body;
@@ -60,7 +61,6 @@ app.post('/admin', (req, res) => {
     tattoo.save().then(tattoo => {
       res.send(tattoo);
     }).catch( err => {
-      console.log(err.message);
       res.status(400).send(err.message)
     });
 })
@@ -73,6 +73,7 @@ app.delete('/tattoos/:id', (req, res) => {
 
   Tattoo.findByIdAndDelete(id).then(tattoo => {
     if (tattoo) {
+      res.setHeader('Content-Type', 'application/json');
       return res.send(tattoo);
     } else {
       return res.status(404).send('Unable to find id');
@@ -84,33 +85,23 @@ app.delete('/tattoos/:id', (req, res) => {
 //UPDATES TATTOO WITH SPECIFIED ID
 app.put('/tattoos/:id', (req, res) => {
   const id = req.params.id;
-  const {_id, price, category, name} = req.body;
+  const {price, category, name} = req.body;
 
-    Tattoo.findById(id).then(tattoo => {
+    Tattoo.findById(id).then(tattoo => {  //Tattoo.findById(id).then(tattoo => {
         if (!tattoo) {
             return res.status(404).send('Unable to find id');
         }
-        if(_id) {
-            tattoo.set({
-                _id
-            })
-        }
         if (price) {
-            tattoo.set({
-                price
-            })
+            tattoo.price = price;
         }
         if (category) {
-            tattoo.set({
-                category
-            })
+            tattoo.category = category;
         }        
         if (name) {
-            tattoo.set({
-                name
-            })
+            tattoo.name = name;
         }        
         tattoo.save().then(updatedTattoo => res.send(updatedTattoo));
+        console.log(tattoo);
     }).catch(err => res.status(400).send(err));
 });
 
