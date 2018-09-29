@@ -20,6 +20,39 @@ class App extends Component {
     }
   }
 
+
+  // updateState = (newProduct) => {
+  //   if(this.state.products !== null) {
+      
+  //     console.log("called");
+      
+  //     let index = this.state.products.findIndex(product => product._id === newProduct.id);
+  //     let products = [...this.state.products];
+  //     products[index] = newProduct;
+
+  //     this.setState({products});
+  //   }
+  // }
+
+  addProductToState = (newProduct) => {
+    let updatedProducts = [...this.state.products, newProduct];
+    this.setState({products: updatedProducts});
+  }
+
+  removeProductFromState = (removeProduct) => {
+    let filteredProducts = this.state.products.filter(product => product._id !== removeProduct._id)
+    this.setState({products: filteredProducts});
+  }
+
+  updateProductInState = (updatedProduct) => {
+      let index = this.state.products.findIndex(product => product._id === updatedProduct._id);
+      let products = [...this.state.products];
+      products[index] = updatedProduct;
+
+      this.setState({products});
+  }
+
+
   componentDidMount = () => {
     const url = "http://localhost:5000/tattoos";
 
@@ -29,13 +62,6 @@ class App extends Component {
         this.setState({products: resJSON});
       });
   
-  };
-
-
-  ProductPage = (props) => {
-    return (
-      <Products products={this.props.products} />
-    );
   };
 
 
@@ -49,11 +75,9 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/products" render={() => (<Products products={this.state.products}/>)} />
             <Route exact path="/contact" component={Contact} />
-            <Route exact path="/admin" component={Admin} />
+            <Route exact path="/admin" render={() => (<Admin updateProductInState={this.updateProductInState} removeProductFromState={this.removeProductFromState} addProductToState={this.addProductToState} products={this.state.products}/>)} />
             <Route component={Error} />
           </Switch>
-
-          {console.log(this.state.products)}
 
           <Footer />
         </div>

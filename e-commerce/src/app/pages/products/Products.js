@@ -49,7 +49,7 @@ class Products extends Component {
     if(this.props.products !== null) {
       if(selectedCategory === "all") {
         let productList = this.props.products.filter(product => product.price <= this.state.maxPrice).map((product) => {      
-          return <Product key={product._id} img={product.img} product={product} selectProduct={this.selectProduct} />
+          return <Product key={product._id} product={product} selectProduct={this.selectProduct} />
 
         });        
         return productList;
@@ -115,7 +115,6 @@ class Products extends Component {
 
           <ul>
             {this.renderProducts()}
-            {console.log(this.props.products)}
           </ul>
         </div>
         
