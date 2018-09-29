@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose'), Schema = mongoose.Schema;
 
-const TattooSchema = new mongoose.Schema({
+const TattooSchema = new Schema({
     _id: {
       type: Number,
       required: true
@@ -13,15 +13,12 @@ const TattooSchema = new mongoose.Schema({
       type: String,
       required: true
     },
-    img: {
-      type: String,
-      required: true
-    },
     name: {
         type: String,
         required: true
     }
 });
+
 
 const Tattoo = mongoose.model('Tattoo', TattooSchema);
 

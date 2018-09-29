@@ -9,6 +9,7 @@ app.use(bodyParser.json());
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
@@ -44,21 +45,24 @@ app.get('/tattoos/:id', (req, res) => {
 
 
 //CREATES NEW TATTOO
-app.post('/admin', (req, res) => {
+app.post('/tattoos', (req, res) => {
 
   //you have to make sure the tattoo doesnt exist already, mongoose handles that
-  const {_id, price, category, img, name} = req.body;
+  const {id, price, category, name} = req.body;
+
+  console.log(req.body);
 
     let tattoo = new Tattoo ( {
-      _id,
+      _id: id,
       price,
       category,
-      img,
       name
     });
     tattoo.save().then(tattoo => {
       res.send(tattoo);
-    }).catch( err => res.status(400).send(err.message));
+    }).catch( err => {
+      res.status(400).send(err.message)
+    });
 })
 
 
@@ -69,6 +73,7 @@ app.delete('/tattoos/:id', (req, res) => {
 
   Tattoo.findByIdAndDelete(id).then(tattoo => {
     if (tattoo) {
+      res.setHeader('Content-Type', 'application/json');
       return res.send(tattoo);
     } else {
       return res.status(404).send('Unable to find id');
@@ -80,38 +85,23 @@ app.delete('/tattoos/:id', (req, res) => {
 //UPDATES TATTOO WITH SPECIFIED ID
 app.put('/tattoos/:id', (req, res) => {
   const id = req.params.id;
-  const {_id, price, category, img, name} = req.body;
+  const {price, category, name} = req.body;
 
-    Tattoo.findById(id).then(tattoo => {
+    Tattoo.findById(id).then(tattoo => {  //Tattoo.findById(id).then(tattoo => {
         if (!tattoo) {
             return res.status(404).send('Unable to find id');
         }
-        if(_id) {
-            tattoo.set({
-                _id
-            })
-        }
         if (price) {
-            tattoo.set({
-                price
-            })
+            tattoo.price = price;
         }
         if (category) {
-            tattoo.set({
-                category
-            })
-        }        
-        if (img) {
-            tattoo.set({
-                img
-            })
+            tattoo.category = category;
         }        
         if (name) {
-            tattoo.set({
-                name
-            })
+            tattoo.name = name;
         }        
         tattoo.save().then(updatedTattoo => res.send(updatedTattoo));
+        console.log(tattoo);
     }).catch(err => res.status(400).send(err));
 });
 
@@ -121,61 +111,3 @@ app.put('/tattoos/:id', (req, res) => {
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
-
-
-
-
-
-
-
-
-
-
-
-// app.get('/getData', (req, res, next) => {
-//   let result = [];
-
-//   mongo.connect(url, (err, db) => {
-//     assert.equal(null, err);
-//     let cursor = db.collection('tattoos').find();
-
-//     cursor.forEach((doc, err) => {
-//       assert.equal(null, err);
-//       result.push(doc);
-//     }, () => {
-//       db.close();
-//       res.send(result);
-//     });
-
-//   });
-// });
-
-
-
-// app.post('/insertData', (req, res, next) => {
-//   let tattoo = {
-//     price: req.body.price,
-//     category: req.body.category,
-//     img: req.body.img,
-//     name: req.body.name
-//   };
-
-//   mongo.connect(url, (err, db) => {
-//     assert.equal(null, err);
-//     db.collection('tattoos').insertOne(tattoo, (err, result) => {
-//       assert.equal(null, err);
-//       console.log("Inserted tattoo!");
-//       db.close();
-//     });
-//   });
-
-//   res.redirect('/');
-// });
-
-// app.post('/updateData', (req, res, next) => {
-  
-// });
-
-// app.post('/deleteData', (req, res, next) => {
-  
-// });

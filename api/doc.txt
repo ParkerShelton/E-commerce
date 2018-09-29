@@ -3,63 +3,54 @@ db.tattoos.insert([
       _id: 1,
       price: "30.90",
       category: "traditional",
-      img: "./productImg/seaCompass.jpg",
       name: "Sea Compass"
     },
     {
       _id: 2,
       price: "12.90",
       category: "tribal",
-      img: "./productImg/tribalWolf.jpg",
       name: "Tribal Wolf"
     },
     {
       _id: 3,
       price: "22.90",
       category: "blackwork",
-      img: "./productImg/demonDragon.jpg",
       name: "Demon Dragon"
     },
     {
       _id: 4,
       price: "52.90",
       category: "watercolor",
-      img: "./productImg/dreamCatcher.jpg",
       name: "Dream Catcher"
     },
     {
       _id: 5,
       price: "12.90",
       category: "traditional",
-      img: "./productImg/sharkAnchor.jpg",
       name: "Shark Anchor"
     },
     {
       _id: 6,
       price: "2.90",
       category: "tribal",
-      img: "./productImg/halfSleeve.jpg",
       name: "Half Sleeve"
     },
     {
       _id: 7,
       price: "2.90",
       category: "realistic",
-      img: "./productImg/skullOwl.jpg",
       name: "Skull Owl"
     },
     {
       _id: 8,
       price: "2.90",
       category: "realistic",
-      img: "./productImg/neptune.jpg",
       name: "Neptune"
     },
     {
       _id: 9,
       price: "2.90",
       category: "watercolor",
-      img: "./productImg/watercolorPortrait.jpg",
       name: "Portrait"
     }
 ]);
