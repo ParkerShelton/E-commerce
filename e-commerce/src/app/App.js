@@ -3,13 +3,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import './Global.scss';
 import './App.css';
 
-import Home from './pages/home/Home';
-import Products from './pages/products/Products';
-import Contact from './pages/contact/Contact';
-import Error from './pages/error/Error';
-import Admin from './pages/admin/Admin';
-import Header from './components/header/Header';
-import Footer from './components/footer/Footer';
+import Auth from '../auth/Auth.js';
 
 class App extends Component {
   constructor(props) {
@@ -17,22 +11,24 @@ class App extends Component {
 
     this.state = {
       products: null,
+      contacts: null
     }
   }
 
+/*                   AUTH0                   */
+///////////////////////////////////////////////
+  goTo(route) {
+    this.props.history.replace(`/${route}`)
+  }
 
-  // updateState = (newProduct) => {
-  //   if(this.state.products !== null) {
-      
-  //     console.log("called");
-      
-  //     let index = this.state.products.findIndex(product => product._id === newProduct.id);
-  //     let products = [...this.state.products];
-  //     products[index] = newProduct;
+  login() {
+    this.props.auth.login();
+  }
 
-  //     this.setState({products});
-  //   }
-  // }
+  logout() {
+    this.props.auth.logout();
+  }  
+/////////////////////////////////////////////////
 
   addProductToState = (newProduct) => {
     let updatedProducts = [...this.state.products, newProduct];
@@ -52,8 +48,28 @@ class App extends Component {
       this.setState({products});
   }
 
+  addContactToState = (newContact) => {
+    let updatedContacts = [...this.state.contacts, newContact];
+    this.setState({contacts: updatedContacts});
+  }
 
   componentDidMount = () => {
+    // this.fetchProducts();
+    // this.fetchContacts();
+  };
+
+  fetchContacts = () => {
+    const url = "http://localhost:5000/contacts";
+
+    fetch(url)
+      .then((res) => res.json())
+      .then((resJSON) => {
+        this.setState({contacts: resJSON});
+        console.log(this.state.contacts)
+      });
+  }
+
+  fetchProducts = () => {
     const url = "http://localhost:5000/tattoos";
 
     fetch(url)
@@ -61,27 +77,29 @@ class App extends Component {
       .then((resJSON) => {
         this.setState({products: resJSON});
       });
-  
-  };
-
+  }
 
   render() {
+
+    const { isAuthenticated } = this.props.auth;
+
     return (
-      <BrowserRouter>
         <div className="App">
-          <Header />
+          {/*///////////////*/}
+            <button onClick={this.goTo.bind(this, 'home')} >Home</button>
 
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/products" render={() => (<Products products={this.state.products}/>)} />
-            <Route exact path="/contact" component={Contact} />
-            <Route exact path="/admin" render={() => (<Admin updateProductInState={this.updateProductInState} removeProductFromState={this.removeProductFromState} addProductToState={this.addProductToState} products={this.state.products}/>)} />
-            <Route component={Error} />
-          </Switch>
-
-          <Footer />
+            {
+              !isAuthenticated() && (
+                <button onClick={this.login.bind(this)}>Log In</button>
+              )
+            }
+            {
+              isAuthenticated() && (
+                <button onClick={this.logout.bind(this)}>Log Out</button>
+              )
+            }            
+          {/*///////////////*/}
         </div>
-      </BrowserRouter>
     );
   }
 }

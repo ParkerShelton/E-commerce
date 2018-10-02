@@ -54,135 +54,233 @@ table {
 .Admin {
   display: flex;
   flex-direction: column;
-  width: 80%;
-  margin-top: 70px;
-  margin-bottom: 200px; }
-  .Admin .prompt {
+  width: 100%;
+  padding-top: 70px;
+  margin-bottom: 100px; }
+  .Admin .products {
     display: flex;
-    width: 600px;
-    height: 80px;
-    margin-top: 100px;
-    align-self: center; }
-    .Admin .prompt .selectContainer {
-      display: flex;
-      justify-content: space-between;
-      align-self: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 700px; }
+    .Admin .products .title {
       width: 100%;
-      height: 30px;
-      margin: auto; }
-      .Admin .prompt .selectContainer label {
-        width: 70%;
-        font-size: 30px;
-        font-weight: bold;
-        align-self: center; }
-      .Admin .prompt .selectContainer select {
-        width: 35%;
-        align-self: center; }
-  .Admin .AddForm {
-    display: flex;
-    align-self: center;
-    flex-direction: column;
-    width: 500px;
-    height: 300px;
-    margin-top: 50px;
-    border: 3px solid #000; }
-    .Admin .AddForm h2 {
-      font-size: 30px;
-      text-align: center; }
-    .Admin .AddForm .container {
-      display: flex;
-      width: 50%;
-      height: 30px;
-      margin: auto; }
-      .Admin .AddForm .container label {
+      font-size: 80px;
+      text-align: center;
+      margin: 10px; }
+    .Admin .products .leftColumn {
+      width: 80%;
+      height: 100%; }
+      .Admin .products .leftColumn .prompt {
+        display: flex;
+        width: 600px;
+        height: 80px;
         margin: auto; }
-      .Admin .AddForm .container input {
-        width: 70%; }
-      .Admin .AddForm .container button {
-        width: 60%;
-        height: 100%;
-        margin: auto; }
-  .Admin .RemoveForm {
-    display: flex;
-    align-self: center;
-    flex-direction: column;
-    width: 500px;
-    height: 200px;
-    margin-top: 50px;
-    border: 3px solid #000; }
-    .Admin .RemoveForm h2 {
-      font-size: 30px;
-      text-align: center; }
-    .Admin .RemoveForm .container {
-      display: flex;
-      width: 75%;
-      height: 30px;
-      margin: auto;
-      margin-top: 30px; }
-      .Admin .RemoveForm .container label {
-        margin: auto; }
-      .Admin .RemoveForm .container input {
-        width: 50%; }
-      .Admin .RemoveForm .container button {
-        width: 60%;
-        height: 100%;
-        margin: auto; }
-  .Admin .EditForm {
-    display: flex;
-    align-self: center;
-    flex-direction: column;
-    width: 500px;
-    height: 400px;
-    margin-top: 50px;
-    border: 3px solid #000; }
-    .Admin .EditForm h2 {
-      font-size: 30px;
-      text-align: center; }
-    .Admin .EditForm .container {
-      display: flex;
-      width: 75%;
-      height: 30px;
-      margin: auto;
-      margin-top: 30px; }
-      .Admin .EditForm .container label {
-        margin: auto; }
-      .Admin .EditForm .container input {
-        width: 50%; }
-      .Admin .EditForm .container button {
-        width: 60%;
-        height: 100%;
-        margin: auto; }
-    .Admin .EditForm .find {
-      width: 50%;
-      height: 30px;
-      margin: auto; }
-  .Admin .productList {
-    position: fixed;
-    right: 10px;
-    top: 80px;
-    width: 250px;
-    min-height: 600px;
-    max-height: 600px;
-    overflow: auto;
-    border: 3px solid #000; }
-    .Admin .productList .AdminProduct {
-      width: 100%;
-      height: 130px;
-      margin: auto;
-      background-color: #bbb; }
-      .Admin .productList .AdminProduct:nth-child(odd) {
-        background-color: #999; }
-      .Admin .productList .AdminProduct h2 {
-        text-align: center;
-        padding-top: 10px;
-        font-size: 20px;
-        font-weight: bold; }
-      .Admin .productList .AdminProduct div {
-        width: 70%;
-        height: 70px;
+        .Admin .products .leftColumn .prompt .selectContainer {
+          display: flex;
+          justify-content: space-between;
+          align-self: center;
+          width: 100%;
+          height: 30px; }
+          .Admin .products .leftColumn .prompt .selectContainer label {
+            width: 70%;
+            font-size: 30px;
+            font-weight: bold;
+            align-self: center; }
+          .Admin .products .leftColumn .prompt .selectContainer select {
+            width: 35%;
+            align-self: center; }
+      .Admin .products .leftColumn .AddForm {
+        display: flex;
+        align-self: center;
+        flex-direction: column;
+        width: 500px;
+        height: 300px;
         margin: auto;
-        margin-top: 10px; }
-        .Admin .productList .AdminProduct div p {
-          text-align: center;
-          font-size: 18px;
-          padding-top: 5px; }
+        margin-top: 50px;
+        border: 3px solid #000; }
+        .Admin .products .leftColumn .AddForm h2 {
+          font-size: 30px;
+          text-align: center; }
+        .Admin .products .leftColumn .AddForm .container {
+          display: flex;
+          width: 50%;
+          height: 30px;
+          margin: auto; }
+          .Admin .products .leftColumn .AddForm .container label {
+            margin: auto; }
+          .Admin .products .leftColumn .AddForm .container input {
+            width: 70%; }
+          .Admin .products .leftColumn .AddForm .container button {
+            width: 60%;
+            height: 100%;
+            margin: auto; }
+      .Admin .products .leftColumn .RemoveForm {
+        display: flex;
+        align-self: center;
+        flex-direction: column;
+        width: 500px;
+        height: 200px;
+        margin: auto;
+        margin-top: 50px;
+        border: 3px solid #000; }
+        .Admin .products .leftColumn .RemoveForm h2 {
+          font-size: 30px;
+          text-align: center; }
+        .Admin .products .leftColumn .RemoveForm .container {
+          display: flex;
+          width: 75%;
+          height: 30px;
+          margin: auto;
+          margin-top: 30px; }
+          .Admin .products .leftColumn .RemoveForm .container label {
+            margin: auto; }
+          .Admin .products .leftColumn .RemoveForm .container input {
+            width: 50%; }
+          .Admin .products .leftColumn .RemoveForm .container button {
+            width: 60%;
+            height: 100%;
+            margin: auto; }
+      .Admin .products .leftColumn .EditForm {
+        display: flex;
+        align-self: center;
+        flex-direction: column;
+        width: 500px;
+        height: 400px;
+        margin: auto;
+        margin-top: 50px;
+        border: 3px solid #000; }
+        .Admin .products .leftColumn .EditForm h2 {
+          font-size: 30px;
+          text-align: center; }
+        .Admin .products .leftColumn .EditForm .container {
+          display: flex;
+          width: 75%;
+          height: 30px;
+          margin: auto;
+          margin-top: 30px; }
+          .Admin .products .leftColumn .EditForm .container label {
+            margin: auto; }
+          .Admin .products .leftColumn .EditForm .container input {
+            width: 50%; }
+          .Admin .products .leftColumn .EditForm .container button {
+            width: 60%;
+            height: 100%;
+            margin: auto; }
+        .Admin .products .leftColumn .EditForm .find {
+          width: 50%;
+          height: 30px;
+          margin: auto; }
+    .Admin .products .rightColumn {
+      width: 20%;
+      padding: 20px;
+      margin-bottom: auto; }
+      .Admin .products .rightColumn .productList {
+        width: 250px;
+        max-height: 500px;
+        overflow: auto;
+        border: 3px solid #000;
+        box-shadow: 0px 0px 25px 10px rgba(0, 0, 0, 0.5); }
+        .Admin .products .rightColumn .productList .AdminProduct {
+          width: 100%;
+          height: 130px;
+          margin: auto;
+          background-color: #bbb; }
+          .Admin .products .rightColumn .productList .AdminProduct:nth-child(odd) {
+            background-color: #999; }
+          .Admin .products .rightColumn .productList .AdminProduct h3 {
+            text-align: center;
+            padding-top: 10px;
+            font-size: 20px;
+            font-weight: bold; }
+          .Admin .products .rightColumn .productList .AdminProduct div {
+            width: 70%;
+            height: 70px;
+            margin: auto;
+            margin-top: 10px; }
+            .Admin .products .rightColumn .productList .AdminProduct div p {
+              text-align: center;
+              font-size: 18px;
+              padding-top: 5px; }
+  .Admin .contacts {
+    width: 100%; }
+    .Admin .contacts .title {
+      width: 100%;
+      font-size: 80px;
+      text-align: center;
+      margin: 10px; }
+    .Admin .contacts .contactList {
+      display: flex;
+      flex-direction: column;
+      width: 60%;
+      margin: auto;
+      margin-top: 30px;
+      box-shadow: 0px 0px 25px 10px rgba(0, 0, 0, 0.5); }
+      .Admin .contacts .contactList .AdminContact {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 300px;
+        margin: auto;
+        background-color: #bbb; }
+        .Admin .contacts .contactList .AdminContact:nth-child(odd) {
+          background-color: #999; }
+        .Admin .contacts .contactList .AdminContact .topRow {
+          display: flex;
+          width: 100%;
+          height: 50px; }
+          .Admin .contacts .contactList .AdminContact .topRow .id {
+            width: 10%;
+            height: 20px;
+            align-self: center;
+            font-size: 20px;
+            text-align: center; }
+          .Admin .contacts .contactList .AdminContact .topRow .subject {
+            width: 90%;
+            height: 30px;
+            align-self: center;
+            font-size: 30px;
+            text-align: center; }
+        .Admin .contacts .contactList .AdminContact .bottomRow {
+          display: flex;
+          height: 250px; }
+          .Admin .contacts .contactList .AdminContact .bottomRow .column {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: space-around;
+            width: 50%;
+            height: 250px; }
+            .Admin .contacts .contactList .AdminContact .bottomRow .column .fname {
+              width: 50%;
+              height: 25px;
+              align-self: center;
+              text-align: center;
+              font-size: 25px; }
+            .Admin .contacts .contactList .AdminContact .bottomRow .column .lname {
+              width: 50%;
+              height: 25px;
+              align-self: center;
+              text-align: center;
+              font-size: 25px; }
+            .Admin .contacts .contactList .AdminContact .bottomRow .column .email {
+              width: 100%;
+              height: 28px;
+              align-self: center;
+              text-align: center;
+              font-size: 28px; }
+            .Admin .contacts .contactList .AdminContact .bottomRow .column .feedback {
+              width: 50%;
+              height: 18px;
+              align-self: center;
+              text-align: center;
+              font-size: 18px; }
+            .Admin .contacts .contactList .AdminContact .bottomRow .column .phone {
+              width: 50%;
+              height: 20px;
+              align-self: center;
+              text-align: center;
+              font-size: 20px; }
+            .Admin .contacts .contactList .AdminContact .bottomRow .column .comment {
+              width: 90%;
+              margin: auto;
+              text-align: center;
+              font-size: 20px; }

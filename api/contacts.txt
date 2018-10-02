@@ -1,0 +1,12 @@
+db.contacts.insert([
+  {
+    _id: 1,
+    feedbackType: "compliment",
+    subject: "Great Job!",
+    firstName: "Parker",
+    lastName: "Shelton",
+    email: "parkerkshelton@gmail.com",
+    phone: "754-265-5665",
+    comment: "I am doing a great job!"
+  }
+]);

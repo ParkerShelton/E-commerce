@@ -15,7 +15,7 @@ class Contact extends Component {
         </div>
 
         <FAQ />
-        <Form />
+        <Form addContactToState={this.props.addContactToState} contacts={this.props.contacts} />
       </div>
     );
   }

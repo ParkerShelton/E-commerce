@@ -7,7 +7,17 @@ class Form extends Component {
     super(props);
 
     this.state = {
-      isVerified: false
+      isVerified: false,
+      contact: {
+        id: null,
+        feedbackType: "inquiry",
+        subject: "",
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        comment: ""
+      }
     };
   }
 
@@ -17,11 +27,36 @@ class Form extends Component {
 
   handleSubmit = () => {
     if(this.state.isVerified) {
-      alert("Message has successfully been sent!");
-      //handle rest of submit
+      let contact = this.state.contact;
+      let newId = (this.props.contacts[this.props.contacts.length - 1]._id + 1);
+      
+      contact.id = newId;
+      this.setState({contact});
+
+      fetch('http://localhost:5000/contacts', {
+        method: 'POST',
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(this.state.contact)
+      }).then((res) => {
+        return res.json(); 
+      }).then((resJSON) => {
+        this.props.addContactToState(resJSON);
+        console.log(this.props.contacts);
+      });
+
     } else {
       alert("Please verify you are human!");
     }
+  }
+
+  handleChange = (e, name) => {
+    let contact = this.state.contact;
+
+    contact[name] = e.target.value;
+    this.setState({contact});
   }
 
   verifyCallback = (response) => {
@@ -35,42 +70,42 @@ class Form extends Component {
       <div className="Form">
         <h2>Leave a Message</h2>
 
-        <form onSubmit={this.handleSubmit}>
+        <form>
 
           <div className="topRow">
 
             <div className="leftColumn">
-              <label for="feedbackType" >Feedback Type</label>
-              <select name="feedbackType" className="feedbackType">
-                <option>Inquiry</option>  
-                <option>Compliment</option>
-                <option>Suggestion</option>
-                <option>Complaint</option>
+              <label htmlFor="feedbackType" >Feedback Type</label>
+              <select onChange={(e) => this.handleChange(e, "feedbackType")} name="feedbackType" className="feedbackType">
+                <option value="inquiry">Inquiry</option>  
+                <option value="compliment">Compliment</option>
+                <option value="suggestion">Suggestion</option>
+                <option value="complaint">Complaint</option>
               </select>
 
-              <label for="fname">First Name</label>
-              <input className="fname" name="fname" type="text" />
+              <label htmlFor="fname">First Name</label>
+              <input onChange={(e) => this.handleChange(e, "firstName")} className="fname" name="fname" type="text" />
 
-              <label for="email">Email Address</label>
-              <input className="email" name="email" type="email" />
+              <label htmlFor="email">Email Address</label>
+              <input onChange={(e) => this.handleChange(e, "email")} className="email" name="email" type="email" />
             </div>
 
             <div className="rightColumn">
-              <label for="subject">Subject</label>
-              <input className="subject" name="subject" />
+              <label htmlFor="subject">Subject</label>
+              <input onChange={(e) => this.handleChange(e, "subject")} className="subject" name="subject" />
 
-              <label for="lname">Last Name</label>
-              <input className="lname" name="lname" type="text" />
+              <label htmlFor="lname">Last Name</label>
+              <input onChange={(e) => this.handleChange(e, "lastName")} className="lname" name="lname" type="text" />
 
-              <label for="phone">Phone Number</label>
-              <input className="phone" name="phone" type="phone" placeholder="optional" />     
+              <label htmlFor="phone">Phone Number</label>
+              <input onChange={(e) => this.handleChange(e, "phone")} className="phone" name="phone" type="phone" placeholder="optional" />     
             </div>
 
           </div>
 
           <div className="bottomRow">
-            <label for="comments" />
-            <textarea className="comments" name="comments" placeholder="Comment / Question"></textarea>
+            <label htmlFor="comments" />
+            <textarea onChange={(e) => this.handleChange(e, "comment")} className="comments" name="comments" placeholder="Comment / Question"></textarea>
 
             <div className="newsletter">
               <input type="checkbox" />
@@ -87,7 +122,7 @@ class Form extends Component {
               />             
             </div>
 
-            <button type="submit">Send</button>   
+            <button onClick={this.handleSubmit} type="button">Send</button>
           </div>
 
         </form>
