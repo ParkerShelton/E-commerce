@@ -5,213 +5,337 @@
 .Admin {
   display: flex;
   flex-direction: column;
-  width: 80%;
-  // height: 2000px;
-  margin-top: 70px;
-  margin-bottom: 200px;
+  width: 100%;
+  padding-top: 70px;
+  margin-bottom: 100px;
 
-  .prompt {
+  .products {
     display: flex;
-    width: 600px;
-    height: 80px;
-    margin-top: 100px;
-    align-self: center;
-    // background-color: yellow;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 700px;
 
-    .selectContainer {
-      display: flex;
-      justify-content: space-between;
-      align-self: center;
+    .title {
       width: 100%;
-      height: 30px;
-      margin: auto;
-      // background-color: blue;
+      font-size: 80px;
+      text-align: center;
+      margin: 10px;
+    }
 
-      label {
-        width: 70%;
-        font-size: 30px;
-        font-weight: bold;
+    .leftColumn {
+      width: 80%;
+      height: 100%;
+
+      .prompt {
+        display: flex;
+        width: 600px;
+        height: 80px;
+        margin: auto;
+
+        .selectContainer {
+          display: flex;
+          justify-content: space-between; 
+          align-self: center;
+          width: 100%;
+          height: 30px;
+
+          label {
+            width: 70%;
+            font-size: 30px;
+            font-weight: bold;
+            align-self: center;
+          }
+          select {
+            width: 35%;
+            align-self: center;
+          }
+        }
+      }
+
+    //###############################################
+    //                  ADD FORM
+    //###############################################
+      .AddForm {
+        display: flex;
         align-self: center;
-      }
-      select {
-        width: 35%;
-        align-self: center;
-      }
-    }
-  }
-
-//###############################################
-//                  ADD FORM
-//###############################################
-  .AddForm {
-    display: flex;
-    align-self: center;
-    flex-direction: column;
-    width: 500px;
-    height: 300px;
-    margin-top: 50px;
-    border: 3px solid #000;
-
-    h2 {
-      font-size: 30px;
-      text-align: center;
-    }
-
-    .container {
-      display: flex;
-      width: 50%;
-      height: 30px;
-      margin: auto;
-      // background-color: yellow;
-
-      label {
+        flex-direction: column;
+        width: 500px;
+        height: 300px;
         margin: auto;
-      }
-      input {
-        width: 70%;
-      }
-      button {
-        width: 60%;
-        height: 100%;
-        margin: auto;
-      }
-    }
-  }
+        margin-top: 50px;
+        border: 3px solid #000;
 
-//###############################################
-//                 REMOVE FORM
-//###############################################
-  .RemoveForm {
-    display: flex;
-    align-self: center;
-    flex-direction: column;
-    width: 500px;
-    height: 200px;
-    margin-top: 50px;
-    border: 3px solid #000;
-
-    h2 {
-      font-size: 30px;
-      text-align: center;
-    }
-
-    .container {
-      display: flex;
-      width: 75%;
-      height: 30px;
-      margin: auto;
-      margin-top: 30px;
-      // background-color: yellow;
-
-      label {
-        margin: auto;
-      }
-      input {
-        width: 50%;
-      }
-      button {
-        width: 60%;
-        height: 100%;
-        margin: auto;
-      }
-    }
-  }
-
-
-//###############################################
-//                 REMOVE FORM
-//###############################################
-  .EditForm {
-    display: flex;
-    align-self: center;
-    flex-direction: column;
-    width: 500px;
-    height: 400px;
-    margin-top: 50px;
-    border: 3px solid #000;
-
-    h2 {
-      font-size: 30px;
-      text-align: center;
-    }
-
-    .container {
-      display: flex;
-      width: 75%;
-      height: 30px;
-      margin: auto;
-      margin-top: 30px;
-      // background-color: yellow;
-
-      label {
-        margin: auto;
-      }
-      input {
-        width: 50%;
-      }
-      button {
-        width: 60%;
-        height: 100%;
-        margin: auto;
-      }
-    }
-
-    .find {
-      width: 50%;
-      height: 30px;
-      margin: auto;
-    }
-  }
-
-
-  .productList {
-    // display: flex;
-    // flex-direction: column;
-    position: fixed;
-    right: 10px;
-    top: 80px;
-    width: 250px;
-    min-height: 600px;
-    max-height: 600px;
-    overflow: auto;
-    border: 3px solid #000;
-    // background-color: yellow;    
-
-  //###############################################
-  //                ADMINPRODUCT
-  //###############################################
-    .AdminProduct {
-      width: 100%;
-      height: 130px;
-      margin: auto;
-      background-color: #bbb;
-      // border-bottom: 5px solid #000;
-
-      &:nth-child(odd) {
-        background-color: #999;
-      }
-      
-
-      h2 {
-        text-align: center;
-        padding-top: 10px;
-        font-size: 20px;
-        font-weight: bold;
-      } 
-      div {
-        width: 70%;
-        height: 70px;
-        margin: auto;
-        margin-top: 10px;
-        // background-color: yellow;
-        p {
+        h2 {
+          font-size: 30px;
           text-align: center;
-          font-size: 18px;
-          padding-top: 5px;
+        }
+
+        .container {
+          display: flex;
+          width: 50%;
+          height: 30px;
+          margin: auto;
+
+          label {
+            margin: auto;
+          }
+          input {
+            width: 70%;
+          }
+          button {
+            width: 60%;
+            height: 100%;
+            margin: auto;
+          }
+        }
+      }
+
+    //###############################################
+    //                 REMOVE FORM
+    //###############################################
+      .RemoveForm {
+        display: flex;
+        align-self: center;
+        flex-direction: column;
+        width: 500px;
+        height: 200px;
+        margin: auto;
+        margin-top: 50px;
+        border: 3px solid #000;
+
+        h2 {
+          font-size: 30px;
+          text-align: center;
+        }
+
+        .container {
+          display: flex;
+          width: 75%;
+          height: 30px;
+          margin: auto;
+          margin-top: 30px;
+
+          label {
+            margin: auto;
+          }
+          input {
+            width: 50%;
+          }
+          button {
+            width: 60%;
+            height: 100%;
+            margin: auto;
+          }
+        }
+      }
+
+
+    //###############################################
+    //                 EDIT FORM
+    //###############################################
+      .EditForm {
+        display: flex;
+        align-self: center;
+        flex-direction: column;
+        width: 500px;
+        height: 400px;
+        margin: auto; 
+        margin-top: 50px;
+        border: 3px solid #000;
+
+        h2 {
+          font-size: 30px;
+          text-align: center;
+        }
+
+        .container {
+          display: flex;
+          width: 75%;
+          height: 30px;
+          margin: auto;
+          margin-top: 30px;
+
+          label {
+            margin: auto;
+          }
+          input {
+            width: 50%;
+          }
+          button {
+            width: 60%;
+            height: 100%;
+            margin: auto;
+          }
+        }
+
+        .find {
+          width: 50%;
+          height: 30px;
+          margin: auto;
+        }
+      }
+    }
+
+    .rightColumn {
+      width: 20%;
+      padding: 20px;
+      margin-bottom: auto;
+      // background-color: green;
+
+      .productList {
+        width: 250px;
+        max-height: 500px;
+        overflow: auto;
+        border: 3px solid #000;
+        box-shadow: 0px 0px 25px 10px rgba(0, 0, 0, 0.5);
+
+      //###############################################
+      //                ADMINPRODUCT
+      //###############################################
+        .AdminProduct {
+          width: 100%;
+          height: 130px;
+          margin: auto;
+          background-color: #bbb;
+
+          &:nth-child(odd) {
+            background-color: #999;
+          }
+          
+          h3 {
+            text-align: center;
+            padding-top: 10px;
+            font-size: 20px;
+            font-weight: bold;
+          } 
+          div {
+            width: 70%;
+            height: 70px;
+            margin: auto;
+            margin-top: 10px;
+            p {
+              text-align: center;
+              font-size: 18px;
+              padding-top: 5px;
+            }
+          }
         }
       }
     }
   }
 
+  .contacts {
+    width: 100%;
+
+    .title {
+      width: 100%;
+      font-size: 80px;
+      text-align: center;
+      margin: 10px;
+      // background-color: yellow;
+    }
+
+    .contactList {
+      display: flex;
+      flex-direction: column;
+      width: 60%;
+      margin: auto;
+      margin-top: 30px;
+      box-shadow: 0px 0px 25px 10px rgba(0, 0, 0, 0.5);
+
+      //###############################################
+      //                ADMINCONTACT
+      //###############################################
+      .AdminContact {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 300px;
+        margin: auto;
+        background-color: #bbb;
+
+        &:nth-child(odd) {
+          background-color: #999;
+        }
+
+        .topRow {
+          display: flex;
+          width: 100%;
+          height: 50px;
+
+          .id {
+            width: 10%;
+            height: 20px;
+            align-self: center;
+            font-size: 20px;
+            text-align: center;
+          }
+          .subject {
+            width: 90%;
+            height: 30px;
+            align-self: center;
+            font-size: 30px;
+            text-align: center;
+          }
+        }
+
+        .bottomRow {
+          display: flex;
+          height: 250px;
+
+          .column {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: space-around;
+            width: 50%;
+            height: 250px;
+
+            .fname {
+              width: 50%;
+              height: 25px;
+              align-self: center;
+              text-align: center;
+              font-size: 25px;
+            }
+            .lname {
+              width: 50%;
+              height: 25px;
+              align-self: center;              
+              text-align: center;
+              font-size: 25px;
+            }
+            .email {
+              width: 100%;
+              height: 28px;
+              align-self: center;
+              text-align: center;
+              font-size: 28px;
+            }
+            .feedback {
+              width: 50%;
+              height: 18px;
+              align-self: center;              
+              text-align: center;
+              font-size: 18px;
+            }
+            .phone {
+              width: 50%;
+              height: 20px;
+              align-self: center;              
+              text-align: center;
+              font-size: 20px;
+            }
+
+            .comment {
+              width: 90%;
+              margin: auto;
+              text-align: center;
+              font-size: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
 
 }

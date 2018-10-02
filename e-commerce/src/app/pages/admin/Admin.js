@@ -1,11 +1,10 @@
 import React, { Component } from 'react'; 
 import AdminProduct from './AdminProduct';
+import AdminContact from './AdminContact';
 import AddForm from './forms/AddForm';
 import RemoveForm from './forms/RemoveForm';
 import EditForm from './forms/EditForm';
 import './Admin.css';
-import { error } from 'util';
-
 
 class Admin extends Component {
   constructor(props) {
@@ -52,7 +51,6 @@ class Admin extends Component {
   }
 
   handleRemoveSubmit = (e) => {
-
     let url = `http://localhost:5000/tattoos/${this.state.formData.id}`;
 
     fetch(url, {
@@ -66,7 +64,6 @@ class Admin extends Component {
 
 
   handleEditSubmit = (e) => {
-
     let url = `http://localhost:5000/tattoos/${this.state.formData.id}`;
 
     fetch(url, {
@@ -85,8 +82,6 @@ class Admin extends Component {
 
 
   handleFindProduct = () => {
-    // e.preventDefault();
-
     let url = `http://localhost:5000/tattoos/${this.state.formData.id}`;
     let formData = this.state.formData;
 
@@ -118,13 +113,24 @@ class Admin extends Component {
     if(this.props.products !== null) {
       let productList = this.props.products.map((product) => {      
         return <AdminProduct key={product._id} product={product} />
-
       });        
       return productList;
     
     } else {
       return null;
     }      
+  }
+
+  renderContacts = () => {
+    if(this.props.contacts !== null) {
+      let contactList = this.props.contacts.map((contact) => {
+        return <AdminContact key={contact._id} contact={contact} />
+      });
+      return contactList;
+
+    } else {
+      return null;
+    }
   }
 
   renderForm = () => {
@@ -144,24 +150,40 @@ class Admin extends Component {
 
     return (
       <div className="Admin">
-        <div className="prompt">
-          <div className="selectContainer">
-            <label htmlFor="select">What would you like to do?</label>
-            <select name="select" onChange={(e) => {this.handleFormChange(e)}} >
-              <option value="add">Add Product</option>
-              <option value="remove">Remove Product</option>
-              <option value="edit">Edit Product</option>
-            </select>
+
+        <div className="products">
+          <h2 className="title">Products</h2>
+
+          <div className="leftColumn">
+            <div className="prompt">
+              <div className="selectContainer">
+                <label htmlFor="select">What would you like to do?</label>
+                <select name="select" onChange={(e) => {this.handleFormChange(e)}} >
+                  <option value="add">Add Product</option>
+                  <option value="remove">Remove Product</option>
+                  <option value="edit">Edit Product</option>
+                </select>
+              </div>
+            </div>
+            
+            {this.renderForm()}
+          </div>
+
+          <div className="rightColumn">
+            <div className="productList">
+              {this.renderAdminProducts()}
+            </div>
           </div>
         </div>
 
-        
-        {this.renderForm()}
+        <div className="contacts">
+          <h2 className="title">Contacts</h2>
 
-
-        <div className="productList">
-          {this.renderAdminProducts()}
+          <div className="contactList">
+            {this.renderContacts()}
+          </div>
         </div>
+
       </div>
     );
   }

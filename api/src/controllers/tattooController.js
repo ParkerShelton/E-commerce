@@ -1,37 +1,18 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-require('./public/mongoose');
+const router = express.Router();
 
-const {Tattoo} = require('./src/models/tattoo');
-
-const app = express();
-app.use(bodyParser.json());
-
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
-
-const port = 5000;
-
-
-
-app.get('/', (req, res, next) => {
-  res.send("Hello from root!");
-});
+const {Tattoo} = require('../models/tattoo');
 
 //GETS ALL TATTOOS
-app.get('/tattoos', (req, res) => {
+router.get('/', (req, res) => {
   Tattoo.find().then(tattoos => {
     res.send(tattoos);
   }).catch(err => res.status(400).send(err));
 });
 
 //GETS TATTOO WITH SPECIFIED ID
-app.get('/tattoos/:id', (req, res) => {
-  const id = req.params.id;
+router.get('/:id', (req, res) => {
+  const id = req.params.id; 
 
   Tattoo.findById(id).then(tattoo => {
     if(tattoo) {
@@ -42,15 +23,9 @@ app.get('/tattoos/:id', (req, res) => {
   }).catch(err => res.status(400).send(err));
 });
 
-
-
 //CREATES NEW TATTOO
-app.post('/tattoos', (req, res) => {
-
-  //you have to make sure the tattoo doesnt exist already, mongoose handles that
+router.post('/', (req, res) => {
   const {id, price, category, name} = req.body;
-
-  console.log(req.body);
 
     let tattoo = new Tattoo ( {
       _id: id,
@@ -65,10 +40,8 @@ app.post('/tattoos', (req, res) => {
     });
 })
 
-
-
 //DELETES TATTOO WITH SPECIFIED ID
-app.delete('/tattoos/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
   const id = req.params.id;
 
   Tattoo.findByIdAndDelete(id).then(tattoo => {
@@ -81,9 +54,8 @@ app.delete('/tattoos/:id', (req, res) => {
   }).catch(err => res.status(400).send(err));
 });
 
-
 //UPDATES TATTOO WITH SPECIFIED ID
-app.put('/tattoos/:id', (req, res) => {
+router.put('/:id', (req, res) => {
   const id = req.params.id;
   const {price, category, name} = req.body;
 
@@ -105,9 +77,4 @@ app.put('/tattoos/:id', (req, res) => {
     }).catch(err => res.status(400).send(err));
 });
 
-
-
-// set the server to listen on port variable
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
-});
+module.exports = router;

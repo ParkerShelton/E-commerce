@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import {NavLink} from 'react-router-dom';
 import './Header.css';
+// import NavLink from 'react-router-dom/NavLink';
 
 class Header extends Component {
+
+
   render() {
+
     return (
       <div className="Header">
       
@@ -11,6 +15,7 @@ class Header extends Component {
           <h1 className="title">ArtInk</h1>
 
           <ul className="links">
+            
             <li className="link"><NavLink to="/">Home</NavLink></li>
             <li className="link">•</li>
             <li className="link"><NavLink to="/products">Products</NavLink></li>

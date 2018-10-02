@@ -8,7 +8,7 @@ class AdminProduct extends Component {
 
     return (
       <li className="AdminProduct">
-        <h2>{this.props.product.name}</h2>
+        <h3>{this.props.product.name}</h3>
 
         <div>
           <p className="id">Id: {this.props.product._id}</p>
