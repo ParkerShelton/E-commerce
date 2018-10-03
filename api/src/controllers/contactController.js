@@ -1,34 +1,28 @@
 const express = require('express');
 const router = express.Router();
 
-const {Contact} = require('../models/contact');
+//MONGO
+const { getAllContacts, getSingleContact, createContact } = require('../repositories/mongo/contactRepository');
+
+//MYSQL
+//7const { getAllContacts, createContact } = require('../repositories/mysql/contactRep');
+
+
+
 
 //GETS ALL CONTACTS
 router.get('/', (req, res) => {
-  Contact.find().then(contacts => {
-    res.send(contacts);
-  }).catch(err => res.status(400).send(err));
+  getAllContacts().then((c) => res.send(c));
 });
 
-//CREATES NEW TATTOO
-router.post('/', (req, res) => {
-  const {id, feedbackType, subject, firstName, lastName, email, phone, comment} = req.body;
+//GETS SINGLE CONTACT WITH SPECIFIED ID
+router.get('/:id', (req, res) => {
+  getSingleContact(req.params.id).then((c) => res.send(c));
+});
 
-    let contact = new Contact ( {
-      _id: id,
-      feedbackType: feedbackType,
-      subject: subject,
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
-      phone: phone,
-      comment: comment
-    });
-    contact.save().then(contact => {
-      res.send(contact);
-    }).catch( err => {
-      res.status(400).send(err.message)
-    });
+//CREATES NEW CONTACT
+router.post('/', (req, res) => {
+  createContact(req).then((c) => res.send(c));
 })
 
 module.exports = router;

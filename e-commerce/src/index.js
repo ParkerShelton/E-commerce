@@ -1,16 +1,12 @@
-// import React from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { makeMainRoutes } from './routes';
+import App from './app/App';
 import registerServiceWorker from './registerServiceWorker';
 
-import Auth from './auth/Auth';
-
-const auth = new Auth();
-const routes = makeMainRoutes();
 
 ReactDOM.render(
-  routes,
+  <App />,
   document.getElementById('root')
 );
 registerServiceWorker();

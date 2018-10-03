@@ -97,7 +97,6 @@ class Admin extends Component {
 
       }).then(() => {
         this.setState({formData});
-        console.log(this.state.formData);
       });
   }
 
@@ -106,7 +105,6 @@ class Admin extends Component {
     selectedForm = e.target.value;
 
     this.setState({selectedForm});
-    console.log(selectedForm);
   }
 
   renderAdminProducts = () => {

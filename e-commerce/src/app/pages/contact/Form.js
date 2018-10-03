@@ -42,9 +42,9 @@ class Form extends Component {
         body: JSON.stringify(this.state.contact)
       }).then((res) => {
         return res.json(); 
+        
       }).then((resJSON) => {
         this.props.addContactToState(resJSON);
-        console.log(this.props.contacts);
       });
 
     } else {

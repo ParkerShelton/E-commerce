@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+// import { makeMainRoutes } from './Routes';
+import Routes from './Routes';
 import './Global.scss';
 import './App.css';
 
-import Auth from '../auth/Auth.js';
 
 class App extends Component {
   constructor(props) {
@@ -14,21 +14,6 @@ class App extends Component {
       contacts: null
     }
   }
-
-/*                   AUTH0                   */
-///////////////////////////////////////////////
-  goTo(route) {
-    this.props.history.replace(`/${route}`)
-  }
-
-  login() {
-    this.props.auth.login();
-  }
-
-  logout() {
-    this.props.auth.logout();
-  }  
-/////////////////////////////////////////////////
 
   addProductToState = (newProduct) => {
     let updatedProducts = [...this.state.products, newProduct];
@@ -54,8 +39,8 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    // this.fetchProducts();
-    // this.fetchContacts();
+    this.fetchProducts();
+    this.fetchContacts();
   };
 
   fetchContacts = () => {
@@ -65,7 +50,6 @@ class App extends Component {
       .then((res) => res.json())
       .then((resJSON) => {
         this.setState({contacts: resJSON});
-        console.log(this.state.contacts)
       });
   }
 
@@ -81,24 +65,18 @@ class App extends Component {
 
   render() {
 
-    const { isAuthenticated } = this.props.auth;
-
     return (
         <div className="App">
-          {/*///////////////*/}
-            <button onClick={this.goTo.bind(this, 'home')} >Home</button>
 
-            {
-              !isAuthenticated() && (
-                <button onClick={this.login.bind(this)}>Log In</button>
-              )
-            }
-            {
-              isAuthenticated() && (
-                <button onClick={this.logout.bind(this)}>Log Out</button>
-              )
-            }            
-          {/*///////////////*/}
+          <Routes 
+            products={this.state.products}
+            contacts={this.state.contacts}
+            addProductToState={this.addProductToState}
+            removeProductFromState={this.removeProductFromState}
+            updateProductInState={this.updateProductInState}
+            addContactToState={this.addContactToState}
+          />
+
         </div>
     );
   }

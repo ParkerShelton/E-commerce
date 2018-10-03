@@ -1,6 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-require('./mongoose');
 
 const tattooController = require('./controllers/tattooController');
 const contactController = require('./controllers/contactController');

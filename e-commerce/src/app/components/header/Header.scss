@@ -15,7 +15,7 @@
   .container {
     display: flex;
     justify-content: space-between;
-    width: 80%;
+    width: 90%;
     margin: auto;
 
     .title {
@@ -33,6 +33,20 @@
 
       .link {
         font-size: 20px;
+        align-self: center;
+      }
+
+      .logIn-OutContainer {
+        .logIn-OutBtn {
+          width: 100px;
+          height: 30px;
+          font-size: 15px;
+          font-weight: bold;
+          font-family: $Patua;
+          background-color: #eee;
+          border: 2px solid #ddd; 
+          border-radius: 5px;
+        }
       }
     }
   }

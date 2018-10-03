@@ -22,18 +22,15 @@ export default class Auth {
   }
 
   handleAuthentication() {
-    console.log("Auth.js handleAuthentication");
     this.auth0.parseHash((err, authResult) => {
-      console.log("Auth.js error", err);
-      console.log("Auth.js authResult", authResult);
+
       if (authResult && authResult.accessToken && authResult.idToken) {
-        console.log("Auth.js creating a session");
         this.setSession(authResult);
-        history.replace('/home');
+        history.replace('/');
+
       } else if (err) {
-        console.log("Auth.js had an error");
-        history.replace('/home');
-        console.log(err);
+        history.replace('/');
+  
       } else {
         console.log("Auth.js nothing worked!");
       }
@@ -47,7 +44,7 @@ export default class Auth {
     localStorage.setItem('id_token', authResult.idToken);
     localStorage.setItem('expires_at', expiresAt);
     // navigate to the home route
-    history.replace('/home');
+    history.replace('/');
   }
 
   logout() {
@@ -56,7 +53,7 @@ export default class Auth {
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
     // navigate to the home route
-    history.replace('/home');
+    history.replace('/');
   }
 
   isAuthenticated() {
